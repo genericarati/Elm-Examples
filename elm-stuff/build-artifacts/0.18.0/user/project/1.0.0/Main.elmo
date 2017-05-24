@@ -1,3 +1,110 @@
+var _user$project$Main$output = function (testparam) {
+	return A2(
+		_lukewestby$elm_string_interpolate$String_Interpolate$interpolate,
+		'url({0}) center / cover',
+		{
+			ctor: '::',
+			_0: testparam,
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Main$cardview = function (imagename) {
+	return A2(
+		_debois$elm_mdl$Material_Card$view,
+		{
+			ctor: '::',
+			_0: A2(_debois$elm_mdl$Material_Options$css, 'width', '256px'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_debois$elm_mdl$Material_Card$title,
+				{
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Options$css,
+						'background',
+						_user$project$Main$output(
+							_elm_lang$core$Basics$toString(
+								_elm_lang$core$Tuple$second(imagename).url))),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'height', '330px'),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'padding', '0'),
+							_1: {ctor: '[]'}
+						}
+					}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Card$head,
+						{
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'width', '100%'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(''),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Card$text,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Non-alcoholic syrup used for both its tart and sweet flavour as well as its deep red color.'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Card$actions,
+						{
+							ctor: '::',
+							_0: _debois$elm_mdl$Material_Card$border,
+							_1: {ctor: '[]'}
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Main$init = {
+	ctor: '_Tuple2',
+	_0: {
+		imagecollection: _elm_lang$core$Dict$fromList(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: '1',
+					_1: A3(_mpizenberg$elm_image_collection$Image$Image, '/images/resources/tissue_paithani_saree.jpg', 240, 320)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: '2',
+						_1: A3(_mpizenberg$elm_image_collection$Image$Image, '/images/resources/traditional_paithani_saree.jpg', 240, 320)
+					},
+					_1: {ctor: '[]'}
+				}
+			}),
+		imageUrl: '/images/resources/tissue_paithani_saree.jpg'
+	},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Main$white = _debois$elm_mdl$Material_Color$text(_debois$elm_mdl$Material_Color$white);
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
@@ -27,31 +134,17 @@ var _user$project$Main$update = F2(
 				{ctor: '[]'});
 		}
 	});
-var _user$project$Main$init = {
-	ctor: '_Tuple2',
-	_0: {
-		imagecollection: _elm_lang$core$Dict$fromList(
-			{
-				ctor: '::',
-				_0: {
-					ctor: '_Tuple2',
-					_0: '1',
-					_1: A3(_mpizenberg$elm_image_collection$Image$Image, '/images/resources/tissue_paithani_saree.jpg', 240, 320)
-				},
-				_1: {
-					ctor: '::',
-					_0: {
-						ctor: '_Tuple2',
-						_0: '2',
-						_1: A3(_mpizenberg$elm_image_collection$Image$Image, '/images/resources/traditional_paithani_saree.jpg', 240, 320)
-					},
-					_1: {ctor: '[]'}
-				}
-			}),
-		imageUrl: '/images/resources/tissue_paithani_saree.jpg'
-	},
-	_1: _elm_lang$core$Platform_Cmd$none
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		A2(
+			_elm_lang$core$List$map,
+			_user$project$Main$cardview,
+			_elm_lang$core$Dict$toList(model.imagecollection)));
 };
+var _user$project$Main$main = _elm_lang$html$Html$program(
+	{view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions, init: _user$project$Main$init})();
 var _user$project$Main$Model = F2(
 	function (a, b) {
 		return {imagecollection: a, imageUrl: b};
@@ -60,65 +153,3 @@ var _user$project$Main$AddImage = {ctor: 'AddImage'};
 var _user$project$Main$ChangeUrl = function (a) {
 	return {ctor: 'ChangeUrl', _0: a};
 };
-var _user$project$Main$urlForm = A2(
-	_elm_lang$html$Html$div,
-	{ctor: '[]'},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$input,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$type_('text'),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$placeholder('Image url'),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$ChangeUrl),
-						_1: {ctor: '[]'}
-					}
-				}
-			},
-			{ctor: '[]'}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$input,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$type_('submit'),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$value('Add Image'),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$AddImage),
-							_1: {ctor: '[]'}
-						}
-					}
-				},
-				{ctor: '[]'}),
-			_1: {ctor: '[]'}
-		}
-	});
-var _user$project$Main$view = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: _user$project$Main$urlForm,
-			_1: {
-				ctor: '::',
-				_0: A3(
-					_mpizenberg$elm_image_collection$Image_Collection$view,
-					{ctor: '[]'},
-					_mpizenberg$elm_image_collection$Image_Collection$defaultItemViewer,
-					model.imagecollection),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$main = _elm_lang$html$Html$program(
-	{view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions, init: _user$project$Main$init})();

@@ -1,0 +1,128 @@
+var _user$project$Gridview$init = {
+	ctor: '_Tuple2',
+	_0: {
+		imagecollection: _elm_lang$core$Dict$fromList(
+			{
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: '1',
+					_1: A3(_mpizenberg$elm_image_collection$Image$Image, '/images/resources/tissue_paithani_saree.jpg', 240, 320)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: '2',
+						_1: A3(_mpizenberg$elm_image_collection$Image$Image, '/images/resources/tissue_paithani_saree.jpg', 240, 320)
+					},
+					_1: {ctor: '[]'}
+				}
+			}),
+		imageUrl: '/images/resources/tissue_paithani_saree.jpg'
+	},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Gridview$color = function (k) {
+	return _debois$elm_mdl$Material_Color$background(
+		A3(
+			_elm_lang$core$Basics$flip,
+			_debois$elm_mdl$Material_Color$color,
+			_debois$elm_mdl$Material_Color$S500,
+			A2(
+				_elm_lang$core$Maybe$withDefault,
+				_debois$elm_mdl$Material_Color$Teal,
+				A2(
+					_elm_lang$core$Array$get,
+					A2(
+						_elm_lang$core$Basics_ops['%'],
+						k + 0,
+						_elm_lang$core$Array$length(_debois$elm_mdl$Material_Color$hues)),
+					_debois$elm_mdl$Material_Color$hues))));
+};
+var _user$project$Gridview$style = function (h) {
+	return {
+		ctor: '::',
+		_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+		_1: {
+			ctor: '::',
+			_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#BDBDBD'),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Options$css,
+					'height',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(h),
+						'px')),
+				_1: {
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '4px'),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'color', 'white'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	};
+};
+var _user$project$Gridview$democell = F2(
+	function (k, styling) {
+		return _debois$elm_mdl$Material_Grid$cell(
+			_elm_lang$core$List$concat(
+				{
+					ctor: '::',
+					_0: _user$project$Gridview$style(k),
+					_1: {
+						ctor: '::',
+						_0: styling,
+						_1: {ctor: '[]'}
+					}
+				}));
+	});
+var _user$project$Gridview$small = _user$project$Gridview$democell(500);
+var _user$project$Gridview$gridview = function (model) {
+	return A2(
+		_debois$elm_mdl$Material_Grid$grid,
+		{ctor: '[]'},
+		A2(
+			_elm_lang$core$List$map,
+			function (i) {
+				return A2(
+					_user$project$Gridview$small,
+					{
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 6),
+						_1: {
+							ctor: '::',
+							_0: _user$project$Gridview$color(2),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: A3(
+							_mpizenberg$elm_image_collection$Image_Collection$view,
+							{ctor: '[]'},
+							_mpizenberg$elm_image_collection$Image_Collection$defaultItemViewer,
+							model.imagecollection),
+						_1: {ctor: '[]'}
+					});
+			},
+			A2(_elm_lang$core$List$range, 1, 1)));
+};
+var _user$project$Gridview$Model = F2(
+	function (a, b) {
+		return {imagecollection: a, imageUrl: b};
+	});
+var _user$project$Gridview$AddImage = {ctor: 'AddImage'};
+var _user$project$Gridview$ChangeUrl = function (a) {
+	return {ctor: 'ChangeUrl', _0: a};
+};

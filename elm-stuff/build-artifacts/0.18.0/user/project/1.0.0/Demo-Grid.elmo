@@ -1,0 +1,293 @@
+var _user$project$Demo_Grid$references = {
+	ctor: '::',
+	_0: _user$project$Page$package('http://package.elm-lang.org/packages/debois/elm-mdl/latest/Material-Grid'),
+	_1: {
+		ctor: '::',
+		_0: _user$project$Page$mds('https://www.google.com/design/spec/layout/responsive-ui.html#responsive-ui-grid'),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Page$mdl('http://www.getmdl.io/components/#layout-section/grid'),
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _user$project$Demo_Grid$srcUrl = 'https://github.com/debois/elm-mdl/blob/master/demo/Demo/Grid.elm';
+var _user$project$Demo_Grid$intro = A2(_user$project$Page$fromMDL, 'http://www.getmdl.io/components/#layout-section/grid', '\n> The Material Design Lite (MDL) grid component is a simplified method for laying\n> out content for multiple screen sizes. It reduces the usual coding burden\n> required to correctly display blocks of content in a variety of display\n> conditions.\n>\n> The MDL grid is defined and enclosed by a container element. A grid has 12\n> columns in the desktop screen size, 8 in the tablet size, and 4 in the phone\n> size, each size having predefined margins and gutters. Cells are laid out\n> sequentially in a row, in the order they are defined, with some exceptions:\n>\n>   - If a cell doesn\'t fit in the row in one of the screen sizes, it flows\n>     into the following line.\n>   - If a cell has a specified column size equal to or larger than the number\n>     of columns for the current screen size, it takes up the entirety of its\n>     row.\n');
+var _user$project$Demo_Grid$color = function (k) {
+	return _debois$elm_mdl$Material_Color$background(
+		A3(
+			_elm_lang$core$Basics$flip,
+			_debois$elm_mdl$Material_Color$color,
+			_debois$elm_mdl$Material_Color$S500,
+			A2(
+				_elm_lang$core$Maybe$withDefault,
+				_debois$elm_mdl$Material_Color$Teal,
+				A2(
+					_elm_lang$core$Array$get,
+					A2(
+						_elm_lang$core$Basics_ops['%'],
+						k + 0,
+						_elm_lang$core$Array$length(_debois$elm_mdl$Material_Color$hues)),
+					_debois$elm_mdl$Material_Color$hues))));
+};
+var _user$project$Demo_Grid$style = function (h) {
+	return {
+		ctor: '::',
+		_0: A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+		_1: {
+			ctor: '::',
+			_0: A2(_debois$elm_mdl$Material_Options$css, 'background-color', '#BDBDBD'),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Options$css,
+					'height',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(h),
+						'px')),
+				_1: {
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '8px'),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '4px'),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'color', 'white'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	};
+};
+var _user$project$Demo_Grid$democell = F2(
+	function (k, styling) {
+		return _debois$elm_mdl$Material_Grid$cell(
+			_elm_lang$core$List$concat(
+				{
+					ctor: '::',
+					_0: _user$project$Demo_Grid$style(k),
+					_1: {
+						ctor: '::',
+						_0: styling,
+						_1: {ctor: '[]'}
+					}
+				}));
+	});
+var _user$project$Demo_Grid$small = _user$project$Demo_Grid$democell(50);
+var _user$project$Demo_Grid$std = _user$project$Demo_Grid$democell(200);
+var _user$project$Demo_Grid$view = A5(
+	_user$project$Page$body1,
+	'Grid',
+	_user$project$Demo_Grid$srcUrl,
+	_user$project$Demo_Grid$intro,
+	_user$project$Demo_Grid$references,
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$p,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Resize your browser-window and observe the effect on the Grid\n                below. Note in particular what happens to the top and bottom rows.'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_debois$elm_mdl$Material_Grid$grid,
+				{ctor: '[]'},
+				A2(
+					_elm_lang$core$List$map,
+					function (i) {
+						return A2(
+							_user$project$Demo_Grid$small,
+							{
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 1),
+								_1: {
+									ctor: '::',
+									_0: _user$project$Demo_Grid$color(4),
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('1'),
+								_1: {ctor: '[]'}
+							});
+					},
+					A2(_elm_lang$core$List$range, 1, 12))),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Grid$grid,
+					{ctor: '[]'},
+					A2(
+						_elm_lang$core$List$map,
+						function (i) {
+							return A2(
+								_user$project$Demo_Grid$std,
+								{
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+									_1: {
+										ctor: '::',
+										_0: _user$project$Demo_Grid$color(5),
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('4'),
+									_1: {ctor: '[]'}
+								});
+						},
+						A2(_elm_lang$core$List$range, 1, 3))),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Grid$grid,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: A2(
+								_user$project$Demo_Grid$std,
+								{
+									ctor: '::',
+									_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 6),
+									_1: {
+										ctor: '::',
+										_0: _user$project$Demo_Grid$color(6),
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('6'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_user$project$Demo_Grid$std,
+									{
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+										_1: {
+											ctor: '::',
+											_0: _user$project$Demo_Grid$color(6),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('4'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_user$project$Demo_Grid$std,
+										{
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 2),
+											_1: {
+												ctor: '::',
+												_0: _user$project$Demo_Grid$color(6),
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('2'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_debois$elm_mdl$Material_Grid$grid,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_user$project$Demo_Grid$std,
+									{
+										ctor: '::',
+										_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 6),
+										_1: {
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 8),
+											_1: {
+												ctor: '::',
+												_0: _user$project$Demo_Grid$color(7),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('6 (8 tablet)'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_user$project$Demo_Grid$std,
+										{
+											ctor: '::',
+											_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 4),
+											_1: {
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 6),
+												_1: {
+													ctor: '::',
+													_0: _user$project$Demo_Grid$color(8),
+													_1: {ctor: '[]'}
+												}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('4 (6 tablet)'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_user$project$Demo_Grid$std,
+											{
+												ctor: '::',
+												_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 2),
+												_1: {
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Phone, 4),
+													_1: {
+														ctor: '::',
+														_0: _user$project$Demo_Grid$color(9),
+														_1: {ctor: '[]'}
+													}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('2 (4 phone)'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});

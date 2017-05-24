@@ -1,0 +1,32 @@
+var _lukewestby$elm_string_interpolate$String_Interpolate$applyInterpolation = F2(
+	function (replacements, match) {
+		var ordinalString = function (_p0) {
+			return A2(
+				_elm_lang$core$String$dropLeft,
+				1,
+				A2(_elm_lang$core$String$dropRight, 1, _p0));
+		}(match.match);
+		var ordinal = _elm_lang$core$String$toInt(ordinalString);
+		var _p1 = ordinal;
+		if (_p1.ctor === 'Err') {
+			return '';
+		} else {
+			var _p2 = A2(_elm_lang$core$Array$get, _p1._0, replacements);
+			if (_p2.ctor === 'Nothing') {
+				return '';
+			} else {
+				return _p2._0;
+			}
+		}
+	});
+var _lukewestby$elm_string_interpolate$String_Interpolate$interpolationRegex = _elm_lang$core$Regex$regex('\\{\\d+\\}');
+var _lukewestby$elm_string_interpolate$String_Interpolate$interpolate = F2(
+	function (string, args) {
+		var asArray = _elm_lang$core$Array$fromList(args);
+		return A4(
+			_elm_lang$core$Regex$replace,
+			_elm_lang$core$Regex$All,
+			_lukewestby$elm_string_interpolate$String_Interpolate$interpolationRegex,
+			_lukewestby$elm_string_interpolate$String_Interpolate$applyInterpolation(asArray),
+			string);
+	});
